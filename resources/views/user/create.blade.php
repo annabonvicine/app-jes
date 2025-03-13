@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <a href="{{route('user.index')}}">Página inicial</a>
+    <a href="{{route('user.valter')}}">Página inicial</a>
     <h2>Cadastrar Usuário</h2>
 
     {{-- se ocorrer um erro chama as mensagens --}}

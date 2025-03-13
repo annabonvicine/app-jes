@@ -8,16 +8,24 @@ use Illuminate\Http\Request;
 
 class userController extends Controller
 {
-    public function index(){
+    public function valter(){
         //mostrar a lista de uduário pela ordem id
         $user = User::orderbyDesc('id')->get();
 
         //Retorna a lista de user no index.php
-        return view ('user.index', ['user' => $user]);
+        return view ('user.valter', ['user' => $user]);
     }
 
     public function entrar(){
         return view('user.entrar');
+    }
+
+    public function banco(){
+        return view('user.store');
+    }
+
+    public function index(){
+        return view('user.index');
     }
 
     public function store(UserRequest $request){
@@ -30,7 +38,7 @@ class userController extends Controller
     ]);
         
     //redirecionar para página de cadastro
-    return redirect()->route('user.index')->with('sucess', 'Usuário cadastrado com sucesso');
+    return redirect()->route('user.valter')->with('sucess', 'Usuário cadastrado com sucesso');
     }
 }
 ?>

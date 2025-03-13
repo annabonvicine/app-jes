@@ -12,7 +12,6 @@
     <img src="../../../storage/images/timbre_sesi_senai.png" alt="" width="200px">
     <div class="title">
         <h1>JES-2024</h1>
-        <h2>hello</h2>
     </div>
     <div class="login"><a href=""><img src="../../../storage/images/login.png" alt="" width="40px"></div></a>
   </header>

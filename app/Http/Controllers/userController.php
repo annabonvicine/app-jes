@@ -16,8 +16,8 @@ class userController extends Controller
         return view ('user.index', ['user' => $user]);
     }
 
-    public function create(){
-        return view('user.create');
+    public function entrar(){
+        return view('user.entrar');
     }
 
     public function store(UserRequest $request){

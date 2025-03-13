@@ -35,6 +35,7 @@ class UserRequest extends FormRequest
         return[
             'name.required'=> 'Campo nome Obrigatório',
             'email.required'=> 'Campo E-mail Obrigatório',
+            'email.required'=> 'Insira valido. Ex: example@site.com',
             'password.required'=> 'Campo senha Obrigatório',
             'password.min'=> 'A senha deve ter no mínimo :min caracteres!',
         ];

@@ -16,6 +16,12 @@ class userController extends Controller
         return view ('user.valter', ['user' => $user]);
     }
 
+    public function show(User $user){
+
+        return view ('user.show', ['user' => $user]);
+
+    }
+
     public function entrar(){
         return view('user.entrar');
     }
@@ -26,6 +32,10 @@ class userController extends Controller
 
     public function index(){
         return view('user.index');
+    }
+
+    public function create(){
+        return view('user.create');
     }
 
     public function store(UserRequest $request){

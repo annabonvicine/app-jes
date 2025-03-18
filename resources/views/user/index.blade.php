@@ -193,6 +193,7 @@
             align-items: center;
             flex-direction: column;
             font-size: 15px;
+            height: 80px;
         }
 
         .time-card>img {

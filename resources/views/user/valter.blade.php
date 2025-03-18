@@ -20,6 +20,8 @@
         ID: {{$bduser->id}}<br>
         Nome: {{$bduser->name}}<br>
         E-mail: {{$bduser->email}}<br>
+        {{-- <a href=" {{ route('user.show')}}" --}}
+        <a href="{{route('user.show', ['user'=> $bduser->id])}}">Visualizar</a>
         <hr>
         
     @empty

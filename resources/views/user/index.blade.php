@@ -215,7 +215,7 @@
     <header>
         <div class="nav">
             <div class="nav-left">
-                <i class="bi bi-list"></i>
+                <i class="bi bi-box-arrow-in-right"></i>
             </div>
             <div class="nav-middle">
                 <h1>JES-2025</h1>

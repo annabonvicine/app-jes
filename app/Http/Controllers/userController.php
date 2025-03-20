@@ -44,6 +44,10 @@ class userController extends Controller
         return view('user.entrar');
     }
 
+    public function inicializador(){
+        return view('user.inicializador');
+    }
+
     public function banco(){
         return view('user.store');
     }

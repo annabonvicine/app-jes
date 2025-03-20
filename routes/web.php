@@ -11,3 +11,4 @@ Route::get('/', [userController::class, 'index'])->name('user.index');
 Route::get('/show-user/{user}', [userController::class, 'show']) -> name('user.show');
 Route::get('/edit-user/{user}', [userController::class, 'edit']) -> name('user.edit');
 Route::put('/update-user/{user}', [userController::class, 'update']) -> name('user.update');
+Route::get('/inicializador', [userController::class, 'inicializador'])->name('user.inicializador');

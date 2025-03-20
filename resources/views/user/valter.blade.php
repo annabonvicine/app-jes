@@ -8,7 +8,7 @@
 </head>
 <body>
     <a href="{{route('user.create')}}">Página Cadastro</a>
-    <h2>Lista de usuários cadastrados</h2>
+    <h2>Lista de usuários cadastrados JES</h2>
 
     @if (session('sucess'))
         <p style="color: forestgreen;">

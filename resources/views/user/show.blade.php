@@ -11,6 +11,7 @@
     
 
     <a href="{{ route('user.valter') }}">Listar</a>
+    <a href="{{route('user.edit', ['user'=> $user->id])}}">Editar</a><br>
     <h1>Visualizar Usuário</h1>
     
     Id: {{$user->id}} <br>

@@ -9,3 +9,5 @@ Route::post('/store-user', [userController::class, 'store'])->name('user.store')
 Route::get('/entrar', [userController::class, 'entrar'])->name('user.entrar');
 Route::get('/', [userController::class, 'index'])->name('user.index');
 Route::get('/show-user/{user}', [userController::class, 'show']) -> name('user.show');
+Route::get('/edit-user/{user}', [userController::class, 'edit']) -> name('user.edit');
+Route::put('/update-user/{user}', [userController::class, 'update']) -> name('user.update');

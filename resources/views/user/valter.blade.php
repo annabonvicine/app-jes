@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Lista Usuários - JES </title>
 </head>
 <body>
     <a href="{{route('user.create')}}">Página Cadastro</a>
@@ -22,6 +22,7 @@
         E-mail: {{$bduser->email}}<br>
         {{-- <a href=" {{ route('user.show')}}" --}}
         <a href="{{route('user.show', ['user'=> $bduser->id])}}">Visualizar</a>
+        <a href="{{route('user.edit', ['user'=> $bduser->id])}}">Editar</a><br>
         <hr>
         
     @empty

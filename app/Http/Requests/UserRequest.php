@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use PhpParser\Node\Expr\FuncCall;
 
 class UserRequest extends FormRequest
 {
@@ -14,8 +15,6 @@ class UserRequest extends FormRequest
         return true;
     }
 
-  
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,9 +22,10 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
+        $userID = $this->route('user');
         return [
             'name'=> 'required',
-            'email'=> 'required',
+            'email'=> 'required|email|unique:users,email,'. ($userID ? $userID->id : null),
             'password'=> 'required|min:6', //mínimo de 6 caracteres
         ];
     }
@@ -35,7 +35,8 @@ class UserRequest extends FormRequest
         return[
             'name.required'=> 'Campo nome Obrigatório',
             'email.required'=> 'Campo E-mail Obrigatório',
-            'email.required'=> 'Insira valido. Ex: example@site.com',
+            'email.email'=> 'Necessário enviar um e-mail válido! example@site.com',
+            'email.unique'=> 'E-mail já cadastrado!',
             'password.required'=> 'Campo senha Obrigatório',
             'password.min'=> 'A senha deve ter no mínimo :min caracteres!',
         ];

@@ -141,6 +141,10 @@
         font-size: 17px;
         cursor: pointer;
     }
+    a{
+        color: black;
+        font-style: italic;
+    }
 
 
 </style>
@@ -175,7 +179,7 @@
                         <button>Voltar</button>
                         <button>Entrar</button>
                     </div>
-                    
+                    <p>Não tem um login?<a href="{{route('user.create')}}">Cadastrar</a></p>
                 </div>
 
             </div>

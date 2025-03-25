@@ -40,6 +40,13 @@ class userController extends Controller
         return redirect()->route('user.valter')->with('sucess', 'Usuário atualizado com sucesso');
     }
 
+
+    public function destroy(user $user){
+        $user->delete();
+        return redirect()->route('user.valter')->with('sucess', 'Usuário excluido com sucesso');
+        
+    }
+
     public function entrar(){
         return view('user.entrar');
     }

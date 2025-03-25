@@ -22,7 +22,16 @@
         E-mail: {{$bduser->email}}<br>
         {{-- <a href=" {{ route('user.show')}}" --}}
         <a href="{{route('user.show', ['user'=> $bduser->id])}}">Visualizar</a>
-        <a href="{{route('user.edit', ['user'=> $bduser->id])}}">Editar</a><br>
+        <a href="{{route('user.edit', ['user'=> $bduser->id])}}">Editar</a>
+
+
+        {{-- <a href="{{route('user.destroy', ['user'=> $bduser->id])}}">Excluir</a><br> --}}
+
+        <form method="POST" action="{{ route('user.destroy', ['user'=> $bduser->id] )}}">
+            @csrf
+            @method('delete')
+            <button type="submit" onclick="return confirm('Tem certeza que deseja excluir o usuário {{$bduser->name}}?')">Apagar</button>
+        </form>
         <hr>
         
     @empty

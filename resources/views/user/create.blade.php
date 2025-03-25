@@ -6,37 +6,199 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastrar Usuário</title>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bayon&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+    }
+
+
+    body {
+        background-image: url("../images/fundo.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: bold;
+        height: 100vh;
+    }
+
+    header {
+        height: 100px;
+        background: transparent;
+        color: white
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        padding: 2em 4em;
+    }
+
+    .nav-right {
+        cursor: pointer;
+    }
+
+    .nav-right>img {
+        width: 250px;
+
+    }
+
+
+    main{
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 30px;
+    }
+
+    .container{
+        top: 40px;
+        height: 60%;
+        width: 25%;
+        background-color:#e30613 ;
+        position: relative;
+        border-radius: 47px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
+
+    .titulo-login{
+        position: relative;
+        color: white;
+        font-family: "Bayon", sans-serif;
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .titulo-login>hr{
+        width: 20em;
+    }
+    .campo-login{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height:60%;
+        padding-bottom: 40px;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .form-login{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .form-login>input{
+        width: 270px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        padding-left: 10px;
+        font-size: 17px;
+        outline: none;
+    }
+
+    .buttons{
+        width: 125px;
+        height: 45px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    a{
+        color: black;
+        font-style: italic;
+    }
+</style>
 <body>
 
-    <a href="{{route('user.valter')}}">Página inicial</a>
-    <h2>Cadastrar Usuário</h2>
+    <header>
+        <div class="nav">
+            <div class="nav-left">
 
-    {{-- se ocorrer um erro chama as mensagens --}}
-    @if ($errors->any())
-    
-        @foreach ($errors->all() as $error)
-        <p style="color:red;">
-            {{$error}}
-        </p>
-        
-    @endforeach
-    @endif
+            </div>
+            <div class="nav-middle">
+                <h1></h1>
+            </div>
+            <div class="nav-right">
+                <img src="./images/timbre_sesi_senai.png" alt="">
+            </div>
+        </div>
+    </header>
+ 
+    <main>
+        <div class="container">
+            <div class="login">
+                <div class="titulo-login">
+                    <a href="{{route('user.valter')}}">Página inicial</a>
+                    <h1>Cadastrar Usuário</h1>
+                    <hr>
+                </div>
 
-    <form action="{{route('user.store')}}" method="POST">
-        @csrf
-        @method('POST')
+                {{-- se ocorrer um erro chama as mensagens --}}
+                @if ($errors->any())
+                
+                    @foreach ($errors->all() as $error)
+                    <p style="color:rgb(255, 197, 197);">
+                        {{$error}}
+                    </p>
+                    
+                @endforeach
+                @endif
+                <br>
+                <div class="campo-login">
+                    <form class="form-login" action="{{route('user.store')}}" method="POST">
+                            @csrf
+                            @method('POST')
 
-        <label>Nome:</label>
-        <input type="text" name="name" placeholder="Nome do usuário" value="{{old('name')}}"> <br><br>
+                            {{-- <label>Nome:</label> --}}
+                            <input type="text" name="name" placeholder="Nome do usuário" value="{{old('name')}}"> 
 
-        <label>E-mail:</label>
-        <input type="email" name="email" placeholder="E-mail do usuário" value="{{old('email')}}"> <br><br>
+                            {{-- <label>E-mail:</label> --}}
+                            <input type="email" name="email" placeholder="E-mail do usuário" value="{{old('email')}}"> 
 
-        <label>Senha:</label>
-        <input type="password" name="password" placeholder="Senha do usuário"> <br><br>
-
-        <button type="submit">Cadastrar</button>
-    </form>
+                            {{-- <label>Senha:</label> --}}
+                            <input type="password" name="password" placeholder="Senha do usuário"> <br>
+                            
+                            <div class="buttons">
+                                <center><button class="buttons" type="submit">Cadastrar</button></center>
+                            </div>
+                            <p>Já tem um login?<a href="{{route('user.entrar')}}">Entrar</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
     
 </body>
 </html>

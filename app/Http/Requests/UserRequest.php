@@ -33,12 +33,12 @@ class UserRequest extends FormRequest
     //traduzir as mensagens de validação do formulario
     public function messages(){
         return[
-            'name.required'=> 'Campo nome Obrigatório',
-            'email.required'=> 'Campo E-mail Obrigatório',
-            'email.email'=> 'Necessário enviar um e-mail válido! example@site.com',
-            'email.unique'=> 'E-mail já cadastrado!',
-            'password.required'=> 'Campo senha Obrigatório',
-            'password.min'=> 'A senha deve ter no mínimo :min caracteres!',
+            'name.required'=> '*Campo nome Obrigatório',
+            'email.required'=> '*Campo E-mail Obrigatório',
+            'email.email'=> '*Necessário enviar um e-mail válido! example@site.com',
+            'email.unique'=> '*E-mail já cadastrado!',
+            'password.required'=> '*Campo senha Obrigatório',
+            'password.min'=> '*A senha deve ter no mínimo :min caracteres!',
         ];
         
     }

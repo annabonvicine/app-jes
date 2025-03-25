@@ -12,6 +12,12 @@
 
     <a href="{{ route('user.valter') }}">Listar</a>
     <a href="{{route('user.edit', ['user'=> $user->id])}}">Editar</a><br>
+    {{-- <a href="{{route('user.destroy', ['user'=> $user->id])}}">Excluir</a><br> --}}
+    <form method="POST" action="{{ route('user.destroy', ['user'=> $bduser->id] )}}">
+        @csrf
+        @method('delete')
+        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir o usuário {{$bduser->name}}?')">Apagar</button>
+    </form>
     <h1>Visualizar Usuário</h1>
     
     Id: {{$user->id}} <br>

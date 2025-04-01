@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bayon&display=swap');
+@import url("cronograma.css");
+@import url("index.css");
+@import url("placar.css");
 
 * {
     padding: 0;
@@ -8,20 +11,34 @@
     font-family: "Roboto", sans-serif;
 }
 
+
 header {
     height: 100px;
     background-color: #e30613;
-    color: white
+    color: white;
+    z-index: 2;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 
 main {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding-bottom: 10px;
 }
 
 section {
     width: 100%;
+}
+
+a{
+    color: white;
 }
 
 .nav {
@@ -51,8 +68,6 @@ section {
     font-family: "Bayon", sans-serif;
     letter-spacing: 20px;
     font-weight: 400;
-    position: relative;
-    left: 100px;
 }
 
 .nav-right {
@@ -64,136 +79,49 @@ section {
 
 }
 
-.ao-vivo {
-    width: 100%;
-    display: flex;
-    padding: 2em;
-}
-
-.campo-esquerda {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60%;
-    gap: 0.4em;
-}
-
-.modalidade {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7em;
-    font-size: 25px;
-}
-
-.modalidade>p {
-    color: red;
-    font-size: 30px;
-    font-weight: 700;
-}
-
-.placar-principal {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    width: 100%;
-    padding: 0em;
-    align-items: center;
+.menu {
+    display: none;
 
 }
 
-.placar-principal>h1 {
-
-    font-size: 30px;
-}
-
-.time {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    font-size: 30px;
-    font-weight: 600;
-}
-
-.time>img {
-    width: 100px;
-}
-
-.score {
-    font-size: 30px;
-}
-
-.campo-direita {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 40%;
-    gap: 50px;
-    height: 300px;
-    overflow-y: auto;
-}
-
-.player-score {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-
-.player-score>img {
-    width: 60px;
-}
-
-.campo-cronograma {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    padding: 1em;
-}
-
-.card-jogo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    border: 4px solid black;
-    border-radius: 10px;
+.ativado {
+    display: block;
+    height: 500px;
     width: 300px;
-    height: 220px;
-    padding: 0.5em;
-}
-
-.data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.jogo {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.time-card {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-size: 15px;
-    height: 80px;
-}
-
-.time-card>img {
-    width: 50px;
-}
-
-.modalidade-card {
-    font-size: 15px;
-}
-
-.sem-placar {
-    margin-top: 30px;
+    position: absolute;
     background-color: #e30613;
+    border-bottom-right-radius: 20px;
+    padding: 1em 2em;
+    z-index: 100;
 }
+
+.menu-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    color: white;
+    gap: 20px;
+}
+
+.menu-items>li>a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-items>li {
+    display: flex;
+    gap: 15px;
+}
+
+.menu-items>li:last-child {
+    position: relative;
+    top: 13em;
+    left: 70%;
+}
+
+.bi-x-lg {
+    font-size: 40px;
+    font-weight: 900;
+}
+

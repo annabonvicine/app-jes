@@ -24,6 +24,8 @@ class userController extends Controller
 
     }
 
+    
+
     public function edit(User $user){
 
         return view ('user.edit', ['user' => $user]);
@@ -51,6 +53,10 @@ class userController extends Controller
 
     public function entrar(){
         return view('user.entrar');
+    }
+
+    public function cronograma(){
+        return view('user.cronograma');
     }
 
     public function inicializador(){

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
     <header>
         <div class="nav">
             <div class="nav-left">
-                <i class="bi bi-box-arrow-in-right"></i>
+                <a href="{{ route('user.entrar') }}"><i class="bi bi-box-arrow-in-right"></a></i>
             </div>
             <div class="nav-middle">
                 <h1>JES-2025</h1>

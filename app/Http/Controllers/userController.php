@@ -55,12 +55,12 @@ class userController extends Controller
         return view('user.entrar');
     }
 
-    public function cronograma(){
-        return view('user.cronograma');
+    public function placar(){
+        return view('user.placar');
     }
 
-    public function inicializador(){
-        return view('user.inicializador');
+    public function cronograma(){
+        return view('user.cronograma');
     }
 
     public function banco(){

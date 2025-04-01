@@ -18,7 +18,7 @@
                 <a href="{{ route('user.entrar') }}"><i class="bi bi-box-arrow-in-right"></a></i>
             </div>
             <div class="nav-middle">
-                <h1>JES-2025</h1>
+                <h1 id="titulo-index">JES-2025</h1>
             </div>
             <div class="nav-right">
                 <img src="./images/timbre_sesi_senai.png" alt="">

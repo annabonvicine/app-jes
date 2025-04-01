@@ -30,11 +30,11 @@
     </header>
     <div class="menu">
         <ul class="menu-items">
-            <li><i class="bi bi-house"></i><a href="">Ínicio</a></li>
-            <li><i class="bi bi-calendar"></i><a href="">Cronograma</a></li>
+            <li><i class="bi bi-house"></i><a href="{{ route('user.index') }}">Ínicio</a></li>
+            <li><i class="bi bi-calendar"></i><a href="{{ route('user.cronograma') }}">Cronograma</a></li>
             <li><i class="bi bi-shield-fill"></i><a href="">Cadastro Time</a></li>
             <li><i class="bi bi-person-fill"></i><a href="">Cadastro Jogador</a></li>
-            <li><i class="bi bi-box-arrow-left"></i><a href="">Sair</a></li>
+            <li><i class="bi bi-box-arrow-left"></i><a href="{{ route('user.entrar') }}">Sair</a></li>
         </ul>
     </div>
     <main>

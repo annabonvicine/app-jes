@@ -1,0 +1,90 @@
+#titulo-placar{
+    position: absolute;
+    left: 42%;
+    top: -5px;
+    z-index: 0;
+}
+
+.container-placar{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 100px;
+    background-color: #f4f4f4;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    margin: 5em;
+    padding: 5em;
+    border-radius: 20px;
+}
+
+#pontuacao1, #pontuacao2{
+    font-size: 120px;
+}
+
+#x{
+    font-size: 50px;
+}
+
+.time-placar button{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #e30613;
+    color: white;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+#time-nome{
+    position: relative;
+    top: 30px;
+}
+
+.botao-mais{
+    position: relative;
+    right: 10px;
+    transition: transform 0.5s ease; 
+}
+
+.botao-mais:hover{
+    transform: scale(1.1);
+
+}
+
+.botao-menos{
+    position: relative;
+    left: 10px;
+    transition: transform 0.5s ease; 
+}
+
+.botao-menos:hover{
+    transform: scale(1.1);
+
+}
+
+.container-botoes{
+    display: flex;
+    gap: 90px;
+}
+
+.container-botoes button{
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    color: white;
+    background-color: #585656;
+    position: relative;
+    bottom: 40px;
+    transition: transform 0.5s ease; 
+}
+
+.container-botoes button:hover{
+    transform: scale(1.1);
+}

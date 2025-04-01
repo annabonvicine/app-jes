@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bayon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bayon&,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url("cronograma.css");
 @import url("index.css");
 @import url("placar.css");
@@ -8,19 +7,17 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
 
 header {
     height: 100px;
     background-color: #e30613;
     color: white;
-    z-index: 2;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
+    z-index: 0;
 }
-
 
 main {
     display: flex;
@@ -29,8 +26,7 @@ main {
     width: 100%;
     justify-content: center;
     align-items: center;
-    overflow-y: auto;
-    padding-bottom: 10px;
+    z-index: 1;
 }
 
 section {
@@ -40,6 +36,7 @@ section {
 a{
     color: white;
 }
+
 
 .nav {
     display: flex;
@@ -99,9 +96,14 @@ a{
     list-style: none;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 22px;
     color: white;
     gap: 20px;
+
+}
+
+.menu-items li{
+    transition: transform 0.2s ease; 
 }
 
 .menu-items>li>a {
@@ -116,8 +118,9 @@ a{
 
 .menu-items>li:last-child {
     position: relative;
-    top: 13em;
-    left: 70%;
+    top: 11em;
+    left: 65%;
+
 }
 
 .bi-x-lg {
@@ -125,3 +128,7 @@ a{
     font-weight: 900;
 }
 
+.menu-items li:hover{
+    transform: scale(1.05);
+    font-weight: 700;
+}

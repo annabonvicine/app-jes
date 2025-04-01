@@ -1,3 +1,9 @@
+#titulo-index{
+    position: absolute;
+    left: 39%;
+    top: -5px;
+}
+
 .ao-vivo {
     width: 100%;
     display: flex;

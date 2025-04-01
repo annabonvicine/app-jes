@@ -16,6 +16,8 @@ Route::get('/entrar', [userController::class, 'entrar'])->name('user.entrar');
 Route::get('/', [userController::class, 'index'])->name('user.index');
 Route::get('/inicializador', [userController::class, 'inicializador'])->name('user.inicializador');
 Route::get('/cronograma', [userController::class, 'cronograma'])->name('user.cronograma');
+Route::get('/placar', [userController::class, 'placar'])->name('user.placar');
+
 
 //rota para visualizar usuario(VIEW)
 Route::get('/show-user/{user}', [userController::class, 'show']) -> name('user.show');

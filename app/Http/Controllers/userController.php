@@ -10,10 +10,12 @@ class userController extends Controller
 {
     public function valter(){
         //mostrar a lista de uduário pela ordem id
-        $user = User::orderbyDesc('id')->get();
+        // $users = User::orderbyDesc('id')->get();
 
         //Retorna a lista de user no index.php
-        return view ('user.valter', ['user' => $user]);
+
+        $users = User::orderby('id')->paginate(3);
+        return view ('user.valter', ['users' => $users]);
     }
 
     public function show(User $user){

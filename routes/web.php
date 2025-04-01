@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,6 @@ Route::put('/update-user/{user}', [userController::class, 'update']) -> name('us
 
 //rota para excluir usuario(DESTROY)
 Route::delete('/destroy-user/{user}', [userController::class, 'destroy'])->name('user.destroy');
+
+
+Route::get('/table-user',[RegisterController::class, 'create'])->name('resgister.index');

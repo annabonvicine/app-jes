@@ -1,33 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Visualizar Usuário</title>
-</head>
-<body>
-    
-    
+@extends('layouts.admin')
 
-    <a href="{{ route('user.valter') }}">Listar</a>
-    <a href="{{route('user.edit', ['user'=> $user->id])}}">Editar</a><br>
-    {{-- <a href="{{route('user.destroy', ['user'=> $user->id])}}">Excluir</a><br> --}}
-    <form method="POST" action="{{ route('user.destroy', ['user'=> $bduser->id] )}}">
-        @csrf
-        @method('delete')
-        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir o usuário {{$bduser->name}}?')">Apagar</button>
-    </form>
-    <h1>Visualizar Usuário</h1>
-    
-    Id: {{$user->id}} <br>
-    Nome: {{$user->name}} <br>
-    E-mail: {{$user->email}} <br>
+@section('content')
+    <div class="card mt-4 mb-4 border-light shadow">
 
+        <div class="card-header hstack gap-2">
+            <span>Visualizar Usuário</span>
 
-    {{-- Cadastrado em: {{ $user-> create_at}} --}}
-    Cadastrado em: {{ \Carbon\Carbon::parse($user->create_at) ->format('d/m/y H:i:s')}} <br>
-    Editado em: {{ \Carbon\Carbon::parse($user->update_at) ->format('d/m/y H:i:s')}} <br>
+            <span class="ms-auto d-sm-flex flex-row">
 
-</body>
-</html>
+                <a href="{{ route('user.valter') }}" class="btn btn-info btn-sm me-1">Listar</a>
+                <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-warning btn-sm me-1">Editar</a>
+                <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger btn-sm me-1"
+                        onclick="return confirm('Tem certeza que deseja apagar este registro?')">Apagar</button>
+                </form>
+            </span>
+        </div>
+
+        <div class="card-body">
+
+            <x-alert />
+
+            <dl class="row">
+
+                <dt class="col-sm-3">ID</dt>
+                <dd class="col-sm-9">{{ $user->id }}</dd>
+
+                <dt class="col-sm-3">Nome</dt>
+                <dd class="col-sm-9">{{ $user->name }}</dd>
+
+                <dt class="col-sm-3">E-mail</dt>
+                <dd class="col-sm-9">{{ $user->email }}</dd>
+
+                <dt class="col-sm-3">Cadastrado</dt>
+                <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i:s') }}</dd>
+
+                <dt class="col-sm-3">Editado</dt>
+                <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->updated_at)->format('d/m/Y H:i:s') }}</dd>
+
+            </dl>
+        </div>
+    </div>
+@endsection

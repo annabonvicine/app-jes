@@ -16,8 +16,9 @@
     align-items: center;
     position: relative;
     margin: 5em;
+    z-index: 10;
     padding: 5em;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 #pontuacao1, #pontuacao2{
@@ -45,46 +46,93 @@
     top: 30px;
 }
 
-.botao-mais{
+.mais{
     position: relative;
     right: 10px;
-    transition: transform 0.5s ease; 
+    transition: transform 0.5s ease;
 }
 
-.botao-mais:hover{
-    transform: scale(1.1);
-
-}
-
-.botao-menos{
+.menos{
     position: relative;
     left: 10px;
-    transition: transform 0.5s ease; 
+    transition: transform 0.5s ease;
 }
 
-.botao-menos:hover{
-    transform: scale(1.1);
-
-}
-
-.container-botoes{
-    display: flex;
-    gap: 90px;
-}
-
-.container-botoes button{
-    height: 50px;
-    width: 100px;
-    border: none;
-    border-radius: 8px;
-    font-size: 17px;
-    color: white;
-    background-color: #585656;
+.botoes-placar{
     position: relative;
     bottom: 40px;
-    transition: transform 0.5s ease; 
+    display: flex;
+    align-items: center;
+    gap: 200px;
 }
 
-.container-botoes button:hover{
+.botoes-placar button{
+    background-color: #585656;
+    color: white;
+    border: 0;
+    padding: 0.5em 1em;
+    height: 50px;
+    width: 110px;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.botoes-placar button:hover, .mais:hover{
     transform: scale(1.1);
+
+}
+
+.menos:hover{
+    transform: scale(1.1);
+}
+
+.lista-jogadores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+    overflow-y: auto;
+    font-size: 20px;
+}
+
+.lista-jogadores>label input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.lista-jogadores>label input[type="checkbox"]:checked {
+    background-color: #585656;
+}
+
+.lista-jogadores>label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#enviar{
+    width: 200px;
+    align-self: center;
+    font-size: 16px;
+}
+
+#jogadores{
+    border-radius: 50%;
+}
+
+.modal.placar{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

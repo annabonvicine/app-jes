@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
         return [
             'name'=> 'required',
             'email'=> 'required|email|unique:users,email,'. ($userID ? $userID->id : null),
-            'password'=> 'required|min:6', //mínimo de 6 caracteres
+            'password'=> 'required|confirmed|min:6',//mínimo de 6 caracteres
         ];
     }
 
@@ -38,6 +38,7 @@ class UserRequest extends FormRequest
             'email.email'=> '*Necessário enviar um e-mail válido! example@site.com',
             'email.unique'=> '*E-mail já cadastrado!',
             'password.required'=> '*Campo senha Obrigatório',
+            'password.confirmed'=> 'As senhas não são idênticas!',
             'password.min'=> '*A senha deve ter no mínimo :min caracteres!',
         ];
         

@@ -1,213 +1,61 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastrar Usuário</title>
-</head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bayon&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@extends('layouts.admin')
 
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: "Roboto", sans-serif;
-    }
+@section('content')
 
+    <div class="card mt-4 mb-4 border-light shadow">
 
-    body {
-        background-image: url("../images/fundo.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        font-family: "Roboto", sans-serif;
-        font-weight: 400;
-        font-style: bold;
-        height: 100vh;
-    }
+        <div class="card-header hstack gap-2">
+            <span>Cadastrar Usuário</span>
 
-    header {
-        height: 100px;
-        background: transparent;
-        color: white
-    }
+            <span class="ms-auto d-sm-flex flex-row">
 
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-        padding: 2em 4em;
-    }
-
-    .nav-right {
-        cursor: pointer;
-    }
-
-    .nav-right>img {
-        width: 250px;
-
-    }
-
-
-    main{
-        display: flex;
-        height: 100vh;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        bottom: 30px;
-    }
-
-    .container{
-        top: 40px;
-        height: 60%;
-        width: 25%;
-        background-color:#e30613 ;
-        position: relative;
-        border-radius: 47px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .login{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        height: 100%;
-    }
-
-    .titulo-login{
-        position: relative;
-        color: white;
-        font-family: "Bayon", sans-serif;
-        font-weight: 400;
-        letter-spacing: 3px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .titulo-login>hr{
-        width: 20em;
-    }
-    .campo-login{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height:60%;
-        padding-bottom: 40px;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .form-login{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .form-login>input{
-        width: 270px;
-        height: 40px;
-        border: none;
-        border-radius: 10px;
-        padding-left: 10px;
-        font-size: 17px;
-        outline: none;
-    }
-
-    .buttons{
-        width: 125px;
-        height: 45px;
-        background-color: black;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    a{
-        color: black;
-        font-style: italic;
-    }
-</style>
-<body>
-
-    <header>
-        <div class="nav">
-            <div class="nav-left">
-
-            </div>
-            <div class="nav-middle">
-                <h1></h1>
-            </div>
-            <div class="nav-right">
-                <img src="./images/timbre_sesi_senai.png" alt="">
-            </div>
+           </span>
         </div>
-    </header>
- 
-    <main>
-        <div class="container">
-            <div class="login">
-                <div class="titulo-login">
-                    <a href="{{route('user.valter')}}">Página inicial</a>
-                    <h1>Cadastrar Usuário</h1>
-                    <hr>
+
+        <div class="card-body">
+
+            <x-alert />
+
+            <form action="{{ route('user.store') }}" method="POST" class="row g-3">
+                @csrf
+                @method('POST')
+
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Nome completo"
+                        value="{{ old('name') }}">
                 </div>
 
-                {{-- se ocorrer um erro chama as mensagens --}}
-                @if ($errors->any())
-                
-                    @foreach ($errors->all() as $error)
-                    <p style="color:rgb(255, 197, 197);">
-                        {{$error}}
-                    </p>
-                    
-                @endforeach
-                @endif
-                <br>
-                <div class="campo-login">
-                    <form class="form-login" action="{{route('user.store')}}" method="POST">
-                            @csrf
-                            @method('POST')
-
-                            {{-- <label>Nome:</label> --}}
-                            <input type="text" name="name" placeholder="Nome do usuário" value="{{old('name')}}"> 
-
-                            {{-- <label>E-mail:</label> --}}
-                            <input type="email" name="email" placeholder="E-mail do usuário" value="{{old('email')}}"> 
-
-                            {{-- <label>Senha:</label> --}}
-                            <input type="password" name="password" placeholder="Senha do usuário"> <br>
-                            
-                            <div class="buttons">
-                                <center><button class="buttons" type="submit">Cadastrar</button></center>
-                            </div>
-                            <p>Já tem um login?<a href="{{route('user.entrar')}}">Entrar</a></p>
-                    </form>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" name="email" class="form-control" id="email"
+                        placeholder="Melhor e-mail do usuário" value="{{ old('email')}}">
                 </div>
-            </div>
+
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Senha</label>  
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" id="password"
+                        placeholder="Senha com no mínimo 6 caracteres" value="{{ old('password') }}">
+                        <span class="input-group-text" role="button" onclick="togglePassword('password', this)"><i class="bi bi-eye"></i></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="password_confirmation" class="form-label">Confirmar Senha</label>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password_confirmation" class="form-control" id="password_confirmation"
+                        placeholder="Senha com no mínimo 6 caracteres" value="{{ old('password_confirmation') }}">
+                        <span class="input-group-text" role="button" onclick="togglePassword('password_confirmation', this)"><i class="bi bi-eye"></i></span>
+                    </div>
+
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-warning btn-sm">Salvar</button>
+                </div>
+
+            </form>
         </div>
-    </main>
-    
-</body>
-</html>
-
-
-
-
-
-
-
-
-
+    </div>
+@endsection

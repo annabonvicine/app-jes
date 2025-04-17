@@ -22,7 +22,7 @@
                 @csrf
                 @method('PUT')
 
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label for="name" class="form-label">Nome</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Nome completo"
                         value="{{ old('name', $user->name) }}">
@@ -36,8 +36,21 @@
 
                 <div class="col-md-6">
                     <label for="password" class="form-label">Senha</label>
-                    <input type="password" name="password" class="form-control" id="password"
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" id="password"
                         placeholder="Senha com no mínimo 6 caracteres" value="{{ old('password') }}">
+                        <span class="input-group-text" role="button" onclick="togglePassword('password', this)"><i class="bi bi-eye"></i></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="password_confirmation" class="form-label">Confirmar Senha</label>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password_confirmation" class="form-control" id="password_confirmation"
+                        placeholder="Senha com no mínimo 6 caracteres" value="{{ old('password_confirmation') }}">
+                        <span class="input-group-text" role="button" onclick="togglePassword('password_confirmation', this)"><i class="bi bi-eye"></i></span>
+                    </div>
+                        
                 </div>
 
                 <div class="col-12">

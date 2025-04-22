@@ -10,11 +10,12 @@
 
                 <a href="{{ route('user.valter') }}" class="btn btn-info btn-sm me-1">Listar</a>
                 <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-warning btn-sm me-1">Editar</a>
-                <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}">
+                <form id="delete-form-{{ $user->id }}"
+                    action="{{ route('user.destroy', ['user' => $user->id]) }}" method="POST">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="btn btn-danger btn-sm me-1"
-                        onclick="return confirm('Tem certeza que deseja apagar este registro?')">Apagar</button>
+                    <button type="button" class="btn btn-danger btn-sm me-1"
+                        onclick="confirmDelete({{ $user->id }})">Apagar</button>
                 </form>
             </span>
         </div>

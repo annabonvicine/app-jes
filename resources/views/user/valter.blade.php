@@ -36,13 +36,13 @@
                                     class="btn btn-primary btn-sm">Visualizar</a>
                                 <a href="{{ route('user.edit', ['user' => $user->id]) }}"
                                     class="btn btn-warning btn-sm">Editar</a>
-                                <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}"
-                                    class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Tem certeza que deseja apagar este registro?')">Apagar</button>
-                                </form>
+                                    <form id="delete-form-{{ $user->id }}"
+                                        action="{{ route('user.destroy', ['user' => $user->id]) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="button" class="btn btn-danger btn-sm me-1"
+                                            onclick="confirmDelete({{ $user->id }})">Apagar</button>
+                                    </form>
                             </td>
                         </tr>
                     @empty
